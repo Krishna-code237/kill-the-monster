@@ -1,7 +1,6 @@
 const Engine= Matter.Engine;
 const World=Matter.World;
 const Bodies= Matter.Bodies;
-const Body = Matter.Body;
 const Constraint= Matter.Constraint;
 
 
@@ -19,8 +18,8 @@ function setup() {
   world = engine.world;
 
   ground = new Ground(200,400,600,5);
-  hero = new Superhero(400,3,100,100);
-  attach=new Fly(superhero.body,{x:100,y:465});
+  hero = new hero (400,3,100,100);
+  attach=new Fly(hero.body,{x:100,y:465});
   block1 = new Block(280,350,30,40);
   block2 = new Block(310,350,30,40);
   block3 = new Block(340,350,30,40);
@@ -46,7 +45,7 @@ function draw() {
   rectMode(CENTER);
   background(backgroundImage);
 
-  superhero.display();
+  hero.display();
   ground.display();
   stroke(15);
   fill("red");
@@ -67,8 +66,8 @@ function draw() {
 
 }
 function mouseDragged(){
-  Matter.Body.setPosition(superhero.body,{x:mouseX,y:mouseY});
+  Matter.Body.setPosition(hero.body,{x:mouseX,y:mouseY});
 }
 function mouseReleased(){
-  attach.fly();
+  attach.Launch();
 }
